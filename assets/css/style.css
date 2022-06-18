@@ -503,7 +503,7 @@ footer {
 		display: flex;
 		gap: 20px;
 		position: inherit;
-		margin-top: -300px;
+		margin-top: -260px;
 		width: 100%;
 	}
 	.jumbotron-btn a {
@@ -517,6 +517,13 @@ footer {
 	}
 	.work-deskripsi p {
 		font-size: 17px;
+		text-align: justify;
+		line-height: 35px;
+		letter-spacing: normal;
+	}
+	.work-deskripsi a {
+		padding: 19px 0;
+		width: 150px;
 	}
 	#trainer .trainer-1, #trainer .trainer-2, #trainer .trainer-3 {
 		width: 100%;
