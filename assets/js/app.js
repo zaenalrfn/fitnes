@@ -28,9 +28,15 @@ function Counter() {
 	}, 30);
 }
 
-
-
 // bagian navbar active
+window.addEventListener('scroll', navActive);
+function navActive() {
+	let nav = document.querySelector("nav");
+	let windowPosition = window.scrollY > 500;
+	nav.classList.toggle('navActive', windowPosition);
+}
+
+// bagian navbar link active
 	
 const nav_a = document.querySelectorAll("nav a");
 let nav = document.querySelector("nav");
@@ -41,6 +47,13 @@ nav_a.forEach((liA) => {
 		liA.classList.toggle("active");
 	});
 });
+
+// bagian bars
+function Bar() {
+	let ul = document.querySelector("nav ul");	
+	ul.classList.toggle('navRes');
+}
+
 
 // bagian footer deskripsi
 const cursorArticle = document.querySelectorAll("#article-cursor");
@@ -63,4 +76,41 @@ function Article(t) {
 	}
 }
 
+// bagian nav active scroll
+window.addEventListener('scroll', navScroll);
+
+function navScroll() {
+	let navA = document.querySelectorAll("nav a");
+	let section1 = document.getElementById("jumbotron"),
+		section2 = document.getElementById("popular-exercises"),
+		section3 = document.getElementById("work"),
+		section4 = document.getElementById("trainer");
+
+	const sections = [section1, section2, section3, section4];
+	var pageActive = "";
+	for(let section of sections) {
+		let sectionTop = section.offsetTop - 50;
+		if (window.pageYOffset >= sectionTop) {
+			pageActive = section.getAttribute("id");
+		}
+	}
+
+	for(let linkActive of navA) {
+		linkActive.classList.remove("active");
+		if (linkActive.href.includes(pageActive)) {
+			linkActive.classList.add("active");
+		}
+	}
+}
+
 // bagian dark mode
+
+let modeKey = localStorage.getItem('modeKey');
+
+function Dark() {
+
+}
+
+function Light() {
+
+}
